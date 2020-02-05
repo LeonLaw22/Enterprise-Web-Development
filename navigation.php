@@ -9,8 +9,8 @@ foreach($pages as $page){
 				$link = $mydir.'/'.$page;
 				$safeName = str_replace('.php', '', $page);
 				echo '<a href="'.$link.'">'.$safeName.'</a> &nbsp; &nbsp;';
+				
 	}
 }
-
 echo '</div>';
 ?>
