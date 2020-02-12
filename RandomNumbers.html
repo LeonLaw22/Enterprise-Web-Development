@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<title>My First Javascript Query</title>
+	</head>
+	<body onload="makeRequest();">
+
+<script>
+  	var req;
+
+	function makeRequest() {
+    if (window.XMLHttpRequest) { 
+        req = new XMLHttpRequest(); 
+    }
+    else if (window.ActiveXObject) {    	
+        req = new ActiveXObject("Msxml2.XMLHTTP");
+    }
+    else {
+    	// Ajax not supported
+			return;
+    }
+        
+		req.onreadystatechange = function() {
+		var txt = "";
+    if (this.readyState == 4 && this.status == 200) {
+			var response = this.responseText;	
+			console.log (response);						
+							
+			
+     document.getElementById("answer").innerHTML = response;
+     
+     
+    }
+	};
+	
+}
+
+	function askQuestion() {
+		NoMumbers = document.getElementById ("NoMumbers").value;
+		MinValue = document.getElementById ("MinValue");
+		MaxValue = document.getElementById ("MaxValue");
+			
+	  
+			
+	  //req.open("GET", "http://imaginary-realities.com/hate_ball_get_post_no_format.php?question=" + question + "&action=" + selected_type, true);
+  	//req.send();
+
+	}
+</script>
+
+<p>Number of random numbers: <input type = "text" id = "NoNumbers"></input></p>
+<p>Minimum value: <input type = "text" id = "MinValue"></input></p>
+<p>Maximum value: <input type = "text" id = "MaxValue"></input></p>
+
+<h1>Here are your random numbers</h1>
+
+<p id="numbers">Numbers will go here</p>
+
+<input type = "button" value = "Generate Numbers" onclick = "askQuestion();" />
+
+</body>
+</html>
